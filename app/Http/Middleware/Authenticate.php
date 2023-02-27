@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
+use App\Models\User;
 
 class Authenticate extends Middleware
 {
@@ -15,6 +16,12 @@ class Authenticate extends Middleware
     protected function redirectTo($request)
     {
         if (! $request->expectsJson()) {
+            $id=$request->id;
+            $user = User::find($id);
+            $user->emailvery = true;
+           
+            $user->update();
+           
             return route('login.show');
         }
     }

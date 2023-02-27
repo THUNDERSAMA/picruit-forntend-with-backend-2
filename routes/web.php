@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GoogleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,28 +19,48 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
     /**
      * Home Routes
      */
-    Route::get('/', 'HomeController@index')->name('home.index');
+    Route::get('/', function () {
+    return view('pages/home');
+});
+
+Route::post('/login', 'LoginController@login')->name('login.perform');
+Route::get('/register', 'RegisterController@show')->name('register.show');
+Route::get('/logout', 'LogoutController@perform')->name('logout.now');
+
+
+
 
     Route::group(['middleware' => ['guest']], function() {
         /**
          * Register Routes
          */
-        Route::get('/register', 'RegisterController@show')->name('register.show');
         Route::post('/register', 'RegisterController@register')->name('register.perform');
 
         /**
          * Login Routes
          */
-        Route::get('/login', 'LoginController@show')->name('login.show');
-        Route::post('/login', 'LoginController@login')->name('login.perform');
+     
+
+
+        
 
     });
+    
+    
+    Route::get('/signup',function () {
+        return view('pages/signup');
+    });
+    Route::get('/login', function(){
+        return view('pages/signin');
+    }
+    )->name('login.show');
+    Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
 
     Route::group(['middleware' => ['auth']], function() {
         /**
          * Logout Routes
          */
-        Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
+        
 
         /**
          * Verification Routes
@@ -55,4 +76,44 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
          */
         Route::get('/dashboard', 'DashboardController@index')->name('dashboard.index');
     });
+});
+
+Route::prefix('google')->name('google.')->group(function(){
+    Route::get('auth/google',[GoogleController::class,'loginwithgoogle'])->name('login');
+    Route::any('callback', [GoogleController::class, 'callbackFromGoogle'])->name('callback');
+
+});
+Route::get('/dashboard', function () {
+    return view('pages/dashboard');
+});
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+  
+Route::controller(App\Http\Controllers\AuthOtpController::class)->group(function(){
+    Route::get('otp/login', 'login')->name('otp.login');
+    Route::post('otp/generate', 'generate')->name('otp.generate');
+    Route::get('otp/verification/{user_id}', 'verification')->name('otp.verification');
+    Route::post('otp/login', 'loginWithOtp')->name('otp.getlogin');
+});
+
+Route::get('my-notification/{type}', 'App\Http\Controllers\homeController@myNotification');
+
+// home page route
+Route::get('/profile', function () {
+    return view('tutor/user_profile');
+});
+Route::get('/upgrade', function () {
+    return view('tutor/upgrade');
+});
+Route::get('/tutors', function () {
+    return view('pages/browse-tutor');
+    
+});
+Route::get('/blog', function () {
+    return view('pages/blog');
+    
+});
+Route::get('/about', function () {
+    return view('pages/about');
+    
 });

@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Services\Login\RememberMeExpiration;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -18,46 +19,43 @@ class LoginController extends Controller
      */
     public function show()
     {
-        return view('auth.login');
+        return view('pages/signin');
     }
 
-    /**
-     * Handle account login request
-     * 
-     * @param LoginRequest $request
-     * 
-     * @return \Illuminate\Http\Response
-     */
-    public function login(LoginRequest $request)
-    {
-        $credentials = $request->getCredentials();
+    public function login(Request $request)
+    { 
+        $username=$request->input('username');
+        $password=$request->input('password');
+        $user=User::where('username',$username)->first();
+        if( $user){
+        if($user->emailvery==true){
+            $pass=$user->password;
+           
+            if(hash_equals($pass, crypt($password,  $pass))){
+                session()->put('users', $user);
 
-        if(!Auth::validate($credentials)):
-            return redirect()->to('login')
-                ->withErrors(trans('auth.failed'));
-        endif;
-
-        $user = Auth::getProvider()->retrieveByCredentials($credentials);
-
-        Auth::login($user, $request->get('remember'));
-
-        if($request->get('remember')):
-            $this->setRememberMeExpiration($user);
-        endif;
-
-        return $this->authenticated($request, $user);
+ session()->put('userlevel', 1);
+                alert()->message('Login successfully');
+                return redirect()->intended('my-notification/success');
+        }
+        else{
+            alert()->message('Email and password does not match');
+            return redirect()->intended('my-notification/error');
+        }
+        
+            
+    
+        }
+        else{
+            alert()->message('User does verify');
+            return redirect()->intended('my-notification/warning');
+        }
+          
+    }
+    else{
+        alert()->message('User Does not exist');
+        return redirect()->intended('my-notification/not');
     }
 
-    /**
-     * Handle response after user authenticated
-     * 
-     * @param Request $request
-     * @param Auth $user
-     * 
-     * @return \Illuminate\Http\Response
-     */
-    protected function authenticated(Request $request, $user) 
-    {
-        return redirect()->intended();
-    }
+}
 }

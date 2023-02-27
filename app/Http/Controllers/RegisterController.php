@@ -34,6 +34,6 @@ class RegisterController extends Controller
 
         auth()->login($user);
 
-        return redirect('/')->with('success', "Account successfully registered.");
+        return view('auth.verification.notice')->with('success', "Account successfully registered.");
     }
 }
