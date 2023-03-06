@@ -8,6 +8,7 @@ use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\social;
+use App\Models\Category;
 
 class GoogleController extends Controller
 {
@@ -30,16 +31,19 @@ if(!$user){
  Auth::login($new_user);
  session()->put('users', $new_user);
  // return redirect()->intended('pages/dashboard');
- session()->put('userlevel', 1);
- return redirect()->intended('my-notification/success');
+ //session()->put('userlevel', 1);
+return redirect()->intended('my-notification/success');
+
 }
 else{
-    
+   
     session()->put('users', $user);
     // Auth::login($user);
-    session()->put('userlevel', 1);
+   // session()->put('userlevel', $category->category);
   
-    return redirect()->intended('my-notification/success');
+    return redirect()->intended('my-notification/loginsuccess');
+    
+   
 }
     
         }

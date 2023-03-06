@@ -1,8 +1,4 @@
-@if (!is_array(Session::get('users')))
-@php
-$users =Session::get('users');   
-@endphp   
-@endif
+
     <div class="preloader">
         <div class="lds-ripple">
             <div class="lds-pos"></div>
@@ -19,7 +15,7 @@ $users =Session::get('users');
                     <!-- ============================================================== -->
                     <!-- Logo -->
                     <!-- ============================================================== -->
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="{{ url('/') }}">
                         <!-- Logo icon -->
                         <b class="logo-icon">
                           
@@ -61,11 +57,19 @@ $users =Session::get('users');
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                @if(Session::has('users'))  
+                                @php
+                             $users =Session::get('users');  
+                             echo $users['email'];
+                                @endphp 
+                                @else
+                                @include('pages.signin')
+                                @endif
+                                
                                
-                                @if (!is_array($users))
-
-  {{$users['email']}}
-@endif <img src="adminlte/assets/images/users/profile.png" alt="user" class="rounded-circle" width="31">
+                               
+                               
+ <img src="adminlte/assets/images/users/profile.png" alt="user" class="rounded-circle" width="31">
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end user-dd animated" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i>

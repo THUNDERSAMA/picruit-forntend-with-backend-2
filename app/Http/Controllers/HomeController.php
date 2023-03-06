@@ -18,23 +18,30 @@ class HomeController extends Controller
             case 'message':
                 alert()->message('Sweet Alert with message.');
                 break;
-            case 'basic':
-                alert()->basic('Sweet Alert with basic.','Basic');
+            case 'updatesuccess':
+                return redirect()->intended('/dashboard');
                 break;
             case 'not':
                 alert()->info('User Does not exist');
-                return view('pages/signin');
+                 return redirect('/login');
                 break;
+
+                
+                case 'loginsuccess':
+                    alert()->success('Login Sucsessfully')->autoclose(3500);
+                   return redirect()->intended('/dashboard');
+                    break;
             case 'success':
-                alert()->success('Dashboard','Login Sucsessfully')->autoclose(3500);
+                alert()->success('Register Sucsessfully Please Select Category')->autoclose(3500);
+               return redirect()->intended('/category');
                 break;
             case 'error':
                 alert()->error('Invilide User');
-                return view('pages/signin');
+                return redirect('/login');
                 break;
             case 'warning':
                 alert()->warning('Email does not verify');
-                return view('pages/signin');
+                return redirect('/login');
                 break;
             default:
                 # code...
@@ -42,6 +49,6 @@ class HomeController extends Controller
         }
 
 
-        return view('pages/dashboard');
+       
     }
 }

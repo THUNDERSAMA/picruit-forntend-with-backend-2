@@ -26,6 +26,14 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 Route::post('/login', 'LoginController@login')->name('login.perform');
 Route::get('/register', 'RegisterController@show')->name('register.show');
 Route::get('/logout', 'LogoutController@perform')->name('logout.now');
+//category
+Route::get('/category', function (){
+    return view('pages/categories');
+
+});
+Route::post('/category', 'CategoryController@add')->name('category.perform');
+
+Route::any('/update', 'RegisterController@updateuser')->name('update.perform');
 
 
 
@@ -98,6 +106,9 @@ Route::controller(App\Http\Controllers\AuthOtpController::class)->group(function
 
 Route::get('my-notification/{type}', 'App\Http\Controllers\homeController@myNotification');
 
+//media route
+Route::post('/media/{id}','App\Http\Controllers\Profile_picController@mediafile')->name('media.perform');
+
 // home page route
 Route::get('/profile', function () {
     return view('tutor/user_profile');
@@ -115,5 +126,44 @@ Route::get('/blog', function () {
 });
 Route::get('/about', function () {
     return view('pages/about');
+    
+});
+
+Route::get('/career', function () {
+    return view('pages/career');
+    
+});
+Route::get('/find-job', function () {
+    return view('pages/find-job');
+    
+});
+Route::get('/find-work', function () {
+    return view('pages/find-work');
+    
+});
+Route::get('/study-material', function () {
+    return view('pages/study-material');
+    
+});
+Route::get('/about', function () {
+    return view('pages/about');
+    
+});
+//user 
+Route::get('/media', function () {
+    return view('tutor/media');
+    
+});
+
+Route::get('/chat', function () {
+    return view('pages/chat');
+    
+});
+Route::get('/studentlist', function () {
+    return view('pages/studentlist');
+    
+});
+Route::get('/refferal', function () {
+    return view('tutor/refferal');
     
 });

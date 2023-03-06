@@ -122,7 +122,7 @@
                 <h2 class="text-center"><strong>Log in</strong></h2>
 				 <div class="text-center social-btn">
             <a href="#" class="btn btn-primary btn-lg btn-block"><i class="fa fa-facebook"></i> Sign in with <b>Facebook</b></a>
-            <a href="#" class="btn btn-info btn-lg btn-block"><i class="fa fa-twitter"></i> Sign in with <b>Twitter</b></a>
+            <a href="#" class="btn btn-info btn-lg btn-block"><i class="fa fa-instagram"></i> Sign in with <b>Instagram</b></a>
 			<a href="{{route('google.login')}}" class="btn btn-danger btn-lg btn-block"><i class="fa fa-google"></i> Sign in with <b>Google</b></a>
         </div>
 		<div class="or-seperator"><b>or</b></div>

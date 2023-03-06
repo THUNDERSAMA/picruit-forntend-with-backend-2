@@ -37,6 +37,7 @@ class LoginController extends Controller
  session()->put('userlevel', 1);
                 alert()->message('Login successfully');
                 return redirect()->intended('my-notification/success');
+                
         }
         else{
             alert()->message('Email and password does not match');

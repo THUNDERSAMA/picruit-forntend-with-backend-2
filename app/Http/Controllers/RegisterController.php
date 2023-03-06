@@ -36,4 +36,29 @@ class RegisterController extends Controller
 
         return view('auth.verification.notice')->with('success', "Account successfully registered.");
     }
+   
+    public function updateuser(Request $request){
+        $users=session()->get('users');
+        $id=$users['id'];
+        $user=User::find($id);
+           $user->update($request->all());
+           
+              if($user){
+                session()->put('users', $user);
+                return redirect()->intended('my-notification/updatesuccess');
+              }
+              else{
+              return "Not update data";
+              }
+           return  "not Success";
+           }
+
+        
+    
+    public function singleUser($id){
+        $user=User::find($id);
+        return $user;
+    }
+
 }
+?>
