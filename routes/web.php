@@ -167,3 +167,17 @@ Route::get('/refferal', function () {
     return view('tutor/refferal');
     
 });
+//student route begins
+Route::get('/insight', function () {
+    return view('student/analytics');
+});
+Route::get('/srefer', function () {
+    return view('student/refferal');
+});
+Route::get('/scontact', function () {
+    return view('student/contact');
+});
+Route::get('/sprofile', function () {
+    return view('student/user_profile');
+});
+//ends
