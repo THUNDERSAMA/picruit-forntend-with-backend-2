@@ -12,25 +12,25 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <title>Onix Digital Marketing HTML5 Template</title>
+    <title>title</title>
 
     
     <link href="https://cdn.jsdelivr.net/gh/THUNDERSAMA/intern-p1@fcc47ec99110eb75607a65b3c10569c346d1a67f/public/css/bootstrap.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="http://demo.itsolutionstuff.com/plugin/bootstrap-3.min.css">
-    <script src="http://demo.itsolutionstuff.com/plugin/jquery.js"></script>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
     <!--  CSS Files -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/THUNDERSAMA/intern-p1@fcc47ec99110eb75607a65b3c10569c346d1a67f/public/css/fontawesome.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/THUNDERSAMA/intern-p1@fcc47ec99110eb75607a65b3c10569c346d1a67f/public/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/SoftGenics/picruit-forntend-with-backend@2a98719029cb442dd649990e7dd51cc963846ea7/public/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/THUNDERSAMA/intern-p1@fcc47ec99110eb75607a65b3c10569c346d1a67f/public/css/animated.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/THUNDERSAMA/intern-p1@fcc47ec99110eb75607a65b3c10569c346d1a67f/public/css/owl.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-      
+   {{-- styles --}}
 <style>
+
 .btn-primary{
   color: #fff;
     background-color: #03a4ed;;
@@ -89,7 +89,9 @@
 .social-nav .snav:nth-child(4) a{
   background: #2867B2;
 }
-
+footer .footer-item ul li a svg{
+    margin-top:6px;
+}
 .social-nav .snav a i{
       position: absolute;
     top: 14px;
@@ -116,7 +118,68 @@ ul .snav:hover a span{
 .title-ban{
 font-size: 85px;
 }
+.float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+	background-color:#25d366;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+  font-size:43px;
+	box-shadow: 2px 2px 3px #999;
+  z-index:100;
+}
 
+.my-float{
+	margin-top:16px;
+}
+ #chatbox{
+	position:fixed;
+	
+	bottom:70px;
+	right:40px;
+	z-index:100;
+}
+.adiv{
+	background: #04CB28;
+	border-radius: 15px;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+	font-size: 12px;
+	height: 46px;
+}
+.chat{
+	border: none;
+	background: #E2FFE8;
+	font-size: 12px;
+	border-radius: 20px;
+}
+.bg-white{
+	border: 1px solid #E7E7E9;
+	font-size: 12px;
+	border-radius: 20px;
+}
+.myvideo img{
+	border-radius: 20px
+}
+.dot{
+	font-weight: bold;
+}
+.form-control{
+	border-radius: 12px;
+	border: 1px solid #F0F0F0;
+	font-size: 12px;
+}
+.form-control:focus{
+	box-shadow: none;
+	}
+.form-control::placeholder{
+	font-size: 12px;
+	color: #C4C4C4;
+}
 </style>
 
   </head>
