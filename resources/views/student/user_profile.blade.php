@@ -73,7 +73,14 @@
                                     <div class="form-group">
                                         <label class="col-md-12">Full Name</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Johnathan Doe"
+                                            <input type="text" placeholder="your name"
+                                                class="form-control form-control-line">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Parent Name/Student name</label>
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="if a student, your parent's name or vice versa"
                                                 class="form-control form-control-line">
                                         </div>
                                     </div>
@@ -85,13 +92,7 @@
                                                 id="example-email">
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12">Password</label>
-                                        <div class="col-md-12">
-                                            <input type="password" value="password"
-                                                class="form-control form-control-line">
-                                        </div>
-                                    </div>
+                                    
                                     <div class="form-group">
                                         <label class="col-md-12">Phone No</label>
                                         <div class="col-md-12">
@@ -100,12 +101,33 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Message</label>
+                                        <label class="col-md-12">Address</label>
                                         <div class="col-md-12">
-                                            <textarea rows="5" class="form-control form-control-line"></textarea>
+                                            <textarea rows="5" name="address"class="form-control form-control-line"></textarea>
                                         </div>
                                     </div>
-                                    <div class="form-group">
+                                      <div class="form-group">
+                                        <label class="col-md-12">City</label>
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="city name"
+                                                class="form-control form-control-line">
+                                        </div>
+                                    </div>
+                                      <div class="form-group">
+                                        <label class="col-md-12">State</label>
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="state"
+                                                class="form-control form-control-line">
+                                        </div>
+                                    </div>
+                                      <div class="form-group">
+                                        <label class="col-md-12">Pincode</label>
+                                        <div class="col-md-12">
+                                            <input type="number" placeholder="Pincode"
+                                                class="form-control form-control-line">
+                                        </div>
+                                    </div>
+                                    {{-- <div class="form-group">
                                         <label class="col-sm-12">Select Country</label>
                                         <div class="col-sm-12">
                                             <select class="form-select shadow-none form-control-line">
@@ -116,7 +138,7 @@
                                                 <option>Thailand</option>
                                             </select>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     <div class="form-group">
                                         <div class="col-sm-12">
                                             <button class="btn btn-success text-white">Update Profile</button>
